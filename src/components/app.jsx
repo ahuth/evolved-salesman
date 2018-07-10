@@ -1,5 +1,7 @@
 import React from 'react';
 import Cities from './cities';
+import newCities from '../updaters/new-cities';
+import newCount from '../updaters/new-count';
 import randomCities from '../utils/random-cities';
 
 export default class App extends React.Component {
@@ -9,35 +11,11 @@ export default class App extends React.Component {
   }
 
   handleNewClick = () => {
-    this.setState((prevState) => {
-      return {
-        cities: randomCities(prevState.count),
-      };
-    });
+    this.setState(newCities);
   }
 
   handleCountChange = (event) => {
-    const value = event.target.value;
-
-    this.setState((prevState) => {
-      const diff = value - prevState.count;
-
-      if (diff < 0) {
-        const newLength = prevState.cities.length + diff;
-
-        return {
-          cities: prevState.cities.slice(0, newLength),
-          count: value,
-        };
-      } else {
-        const newCities = randomCities(diff);
-
-        return {
-          cities: prevState.cities.concat(newCities),
-          count: value,
-        };
-      }
-    });
+    this.setState(newCount.bind(null, event.target.value));
   }
 
   render() {
