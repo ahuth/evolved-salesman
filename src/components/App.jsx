@@ -1,5 +1,14 @@
 import React from 'react';
+import Cities from './Cities';
+import Point from '../utils/point';
 
 export default function App() {
-  return <span>hello world</span>;
+  return (
+    <Cities
+      cities={[
+        new Point(20, 80, 1),
+        new Point(60, 50, 2),
+      ]}
+    />
+  );
 }
