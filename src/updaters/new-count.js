@@ -9,6 +9,7 @@ export default function newCount(nextCount, { cities, count }) {
     return {
       cities: cities.slice(0, newLength),
       count: nextCount,
+      path: undefined,
     };
   } else {
     const newCities = randomCities(diff);
@@ -16,6 +17,7 @@ export default function newCount(nextCount, { cities, count }) {
     return {
       cities: cities.concat(newCities),
       count: nextCount,
+      path: undefined,
     };
   }
 }

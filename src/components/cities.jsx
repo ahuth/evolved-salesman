@@ -1,6 +1,7 @@
 import React from 'react';
+import pointsToLineCommands from '../utils/points-to-line-commands';
 
-export default function Cities({ cities }) {
+export default function Cities({ cities, path }) {
   return (
     <svg
       height="500"
@@ -16,6 +17,13 @@ export default function Cities({ cities }) {
           r="1"
         />
       ))}
+      {path && (
+        <path
+          d={pointsToLineCommands(path)}
+          fill="transparent"
+          stroke="black"
+        />
+      )}
     </svg>
   );
 }
