@@ -1,5 +1,5 @@
 import React from 'react';
-import Cities from './Cities';
+import Cities from './cities';
 import Point from '../utils/point';
 
 export default function App() {
