@@ -1,5 +1,6 @@
 import React from 'react';
 import Cities from './cities';
+import Controls from './controls';
 import newCities from '../updaters/new-cities';
 import newCount from '../updaters/new-count';
 import newSolution from '../updaters/new-solution';
@@ -27,20 +28,16 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Cities cities={this.state.cities} path={this.state.path} />
-        <button onClick={this.handleNewClick} type="button">
-          New Cities
-        </button>
-        <input
-          min="2"
-          max="50"
-          onChange={this.handleCountChange}
-          type="number"
-          value={this.state.count}
+        <Cities
+          cities={this.state.cities}
+          path={this.state.path}
         />
-        <button onClick={this.handleSolveClick} type="button">
-          Solve!
-        </button>
+        <Controls
+          onCountChange={this.handleCountChange}
+          onNewClick={this.handleNewClick}
+          onSolveClick={this.handleSolveClick}
+          count={this.state.count}
+        />
       </div>
     );
   }
