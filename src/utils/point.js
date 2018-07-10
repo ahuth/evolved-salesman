@@ -6,8 +6,8 @@ export default {
   },
 
   distance(a, b) {
-    const deltaX = a.x - b.position.x;
-    const deltaY = a.y - b.position.y;
+    const deltaX = a.x - b.x;
+    const deltaY = a.y - b.y;
     return Math.hypot(deltaX, deltaY);
   },
 };
