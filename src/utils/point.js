@@ -1,8 +1,10 @@
+import uniqueId from './unique-id';
+
 export default class Point {
-  constructor(x, y, id) {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.id = id;
+    this.id = uniqueId();
   }
 
   distanceFrom(other) {

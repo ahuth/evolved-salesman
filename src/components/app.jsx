@@ -6,8 +6,8 @@ export default function App() {
   return (
     <Cities
       cities={[
-        new Point(20, 80, 1),
-        new Point(60, 50, 2),
+        new Point(20, 80),
+        new Point(60, 50),
       ]}
     />
   );
