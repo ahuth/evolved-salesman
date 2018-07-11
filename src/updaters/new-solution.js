@@ -1,5 +1,7 @@
+import { shuffle } from 'lodash';
+
 export default function newSolution({ cities }) {
   return {
-    path: cities,
+    path: shuffle(cities),
   };
 }
