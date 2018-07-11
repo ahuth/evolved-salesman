@@ -10,6 +10,7 @@ export default function Controls({ count, onCountChange, onNewClick, onSolveClic
         min="2"
         max="50"
         onChange={onCountChange}
+        style={styles.count}
         type="number"
         value={count}
       />
@@ -19,3 +20,9 @@ export default function Controls({ count, onCountChange, onNewClick, onSolveClic
     </div>
   );
 }
+
+const styles = {
+  count: {
+    width: 50,
+  },
+};
