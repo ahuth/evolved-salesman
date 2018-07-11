@@ -8,6 +8,7 @@ export default function newCount(nextCount, { cities, count }) {
 
     return {
       cities: cities.slice(0, newLength),
+      cost: undefined,
       count: nextCount,
       path: undefined,
     };
@@ -16,6 +17,7 @@ export default function newCount(nextCount, { cities, count }) {
 
     return {
       cities: cities.concat(newCities),
+      cost: undefined,
       count: nextCount,
       path: undefined,
     };
