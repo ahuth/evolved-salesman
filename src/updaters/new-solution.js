@@ -1,7 +1,9 @@
-import { shuffle } from 'lodash';
+import Population from '../utils/population';
 
 export default function newSolution({ cities }) {
+  const population = Population.create(cities);
+
   return {
-    path: shuffle(cities),
+    path: Population.evolve(population).path,
   };
 }
