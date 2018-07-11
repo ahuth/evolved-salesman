@@ -2,8 +2,10 @@ import Population from '../utils/population';
 
 export default function newSolution({ cities }) {
   const population = Population.create(cities);
+  const fittest = Population.evolve(population);
 
   return {
-    path: Population.evolve(population).path,
+    cost: Math.round(fittest.cost),
+    path: fittest.path,
   };
 }

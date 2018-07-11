@@ -9,6 +9,7 @@ import randomCities from '../utils/random-cities';
 export default class App extends React.Component {
   state = {
     cities: randomCities(10),
+    cost: undefined,
     count: 10,
     path: undefined,
   }
@@ -38,6 +39,9 @@ export default class App extends React.Component {
           onSolveClick={this.handleSolveClick}
           count={this.state.count}
         />
+        {this.state.cost && (
+          <span>Distance: {this.state.cost}</span>
+        )}
       </div>
     );
   }
