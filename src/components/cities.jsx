@@ -6,6 +6,7 @@ export default function Cities({ cities, path }) {
     <svg
       height="500"
       width="500"
+      style={styles.container}
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -27,3 +28,9 @@ export default function Cities({ cities, path }) {
     </svg>
   );
 }
+
+const styles = {
+  container: {
+    padding: '1rem',
+  },
+};
