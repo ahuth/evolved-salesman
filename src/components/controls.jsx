@@ -1,6 +1,13 @@
 import React from 'react';
 
-export default function Controls({ count, onCountChange, onNewClick, onRandomClick, onSolveClick }) {
+export default function Controls({
+  count,
+  onClearClick,
+  onCountChange,
+  onNewClick,
+  onRandomClick,
+  onSolveClick,
+}) {
   return (
     <div>
       <button onClick={onNewClick} type="button">
@@ -14,6 +21,9 @@ export default function Controls({ count, onCountChange, onNewClick, onRandomCli
         type="number"
         value={count}
       />
+      <button onClick={onClearClick} type="button">
+        Clear
+      </button>
       <button onClick={onRandomClick} type="button">
         Random Solution
       </button>
