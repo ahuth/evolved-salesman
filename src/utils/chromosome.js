@@ -42,7 +42,6 @@ export function sortValue(a, b) {
 
 function measureFitness(path) {
   const pairs = dropRight(zip(path, tail(path)), 1);
-  debugger;
   return pairs.reduce((sum, [a, b]) => {
     return sum + Point.distance(a, b);
   }, 0);
