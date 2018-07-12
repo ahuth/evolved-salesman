@@ -1,4 +1,4 @@
-import { shuffle } from 'lodash';
+import { minBy, sampleSize, shuffle, take } from 'lodash';
 import * as Chromosome from './chromosome';
 
 export function create(cities, size = 100) {
@@ -9,6 +9,60 @@ export function create(cities, size = 100) {
   };
 }
 
-export function evolve(population) {
-  return population.chromosomes[0];
+export function evolve(population, maxIterations = 1000, stableLimit = 20, mutations = 5) {
+  let best;
+  let currentCost = Infinity;
+  let nextGeneration = population.chromosomes;
+  let stableCount = 0;
+  const populationSize = population.chromosomes.length;
+  const matingPoolSize = Math.round(populationSize / 2);
+
+  for (let i = 0; i < maxIterations; i++) {
+    if (stableCount >= stableLimit) {
+      break;
+    }
+
+    const matingPool = selectMatingPool(nextGeneration, matingPoolSize);
+    nextGeneration = breed(matingPool, populationSize);
+    nextGeneration = mutate(nextGeneration, mutations);
+
+    const localBest = getBest(nextGeneration);
+
+    if (localBest.cost < currentCost) {
+      best = localBest;
+      currentCost = localBest.cost;
+      stableCount = 0;
+    } else {
+      stableCount++;
+    }
+  }
+
+  return best;
+}
+
+function selectMatingPool(population, size) {
+  const sortedByCost = population.sort(Chromosome.sortValue);
+
+  return take(sortedByCost, size);
+}
+
+function breed(population, toSize) {
+  const amountNeeded = toSize - population.length;
+  const newMembers = new Array(amountNeeded).fill(0).map(() => {
+    const [mommy, daddy] = sampleSize(population, 2);
+    return Chromosome.mate(mommy, daddy);
+  });
+
+  return population.concat(newMembers);
+}
+
+function mutate(population, mutations) {
+  const mutators = sampleSize(population, mutations);
+
+  mutators.forEach(Chromosome.mutate);
+  return population;
+}
+
+function getBest(population) {
+  return minBy(population, chromosome => chromosome.cost);
 }
