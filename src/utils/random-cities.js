@@ -1,5 +1,5 @@
 import { random } from 'lodash';
-import Point from './point';
+import * as Point from './point';
 
 export default function randomCities(count, maxX = 100, maxY = 100) {
   return new Array(count).fill(0).map(() => {

@@ -1,5 +1,5 @@
 import { shuffle } from 'lodash';
-import Chromosome from '../utils/chromosome';
+import * as Chromosome from '../utils/chromosome';
 
 export default function newRandomSolution({ cities }) {
   const solution = Chromosome.create(shuffle(cities));

@@ -1,4 +1,4 @@
-import Population from '../utils/population';
+import * as Population from '../utils/population';
 
 export default function newSolution({ cities }) {
   const population = Population.create(cities);
