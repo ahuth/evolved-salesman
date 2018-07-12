@@ -3,6 +3,7 @@ import Cities from './cities';
 import Controls from './controls';
 import newCities from '../updaters/new-cities';
 import newCount from '../updaters/new-count';
+import newRandomSolution from '../updaters/new-random-solution';
 import newSolution from '../updaters/new-solution';
 import randomCities from '../utils/random-cities';
 
@@ -22,6 +23,10 @@ export default class App extends React.Component {
     this.setState(newCount.bind(null, event.target.value));
   }
 
+  handleRandomClick = () => {
+    this.setState(newRandomSolution);
+  }
+
   handleSolveClick = () => {
     this.setState(newSolution);
   }
@@ -36,6 +41,7 @@ export default class App extends React.Component {
         <Controls
           onCountChange={this.handleCountChange}
           onNewClick={this.handleNewClick}
+          onRandomClick={this.handleRandomClick}
           onSolveClick={this.handleSolveClick}
           count={this.state.count}
         />
