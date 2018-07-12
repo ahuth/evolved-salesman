@@ -1,10 +1,10 @@
 {
-  "name": "genetic-salesman",
+  "name": "evolved-salesman",
   "version": "0.1.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahuth/genetic-salesman.git"
+    "url": "https://github.com/ahuth/evolved-salesman.git"
   },
   "dependencies": {
     "lodash": "^4.17.10",
