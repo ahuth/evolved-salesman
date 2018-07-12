@@ -1,3 +1,4 @@
+// Convert a list of points into the SVG path commands needed to draw a line between them.
 export default function pointsToLineCommands(points) {
   const commands = points.map((point, index) => {
     let command;

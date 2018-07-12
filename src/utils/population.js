@@ -9,6 +9,7 @@ export function create(cities, size = 100) {
   };
 }
 
+// Find a chromosome with a low cost by evolving multiple generations of solutions.
 export function evolve(population, maxIterations = 1000, stableLimit = 20, mutations = 5) {
   let best;
   let currentCost = Infinity;
@@ -40,12 +41,14 @@ export function evolve(population, maxIterations = 1000, stableLimit = 20, mutat
   return best;
 }
 
+// Select a subset of the population to breed together.
 function selectMatingPool(population, size) {
   const sortedByCost = population.sort(Chromosome.sortValue);
 
   return _.shuffle(_.take(sortedByCost, size));
 }
 
+// Take a population and increase its size by breeding together the requried number of members.
 function breed(population, toSize) {
   const amountNeeded = toSize - population.length;
   const newMembers = new Array(amountNeeded).fill(0).map(() => {
@@ -56,6 +59,7 @@ function breed(population, toSize) {
   return population.concat(newMembers);
 }
 
+// Perform random mutations on members of the population.
 function mutate(population, mutations) {
   const mutators = _.sampleSize(population, mutations);
 

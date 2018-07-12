@@ -8,6 +8,7 @@ export function create(cities) {
   };
 }
 
+// Mutate a chromosome by swapping random pairs of items in its path.
 export function mutate(chromosome) {
   const path = chromosome.path;
   const firstIndex = _.random(0, path.length - 1);
@@ -20,6 +21,7 @@ export function mutate(chromosome) {
   return chromosome;
 }
 
+// Combine paths from two chromosomes.
 export function mate(a, b) {
   const crossoverPoint = Math.round(a.path.length / 2);
   const firstPart = _.take(a.path, crossoverPoint);
@@ -28,6 +30,7 @@ export function mate(a, b) {
   return create(firstPart.concat(secondPart));
 }
 
+// Return the values necessary to sort two chromsomes based on their costs.
 export function sortValue(a, b) {
   if (a.cost < b.cost) {
     return -1;
