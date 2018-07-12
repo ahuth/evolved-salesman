@@ -43,7 +43,7 @@ export function evolve(population, maxIterations = 1000, stableLimit = 20, mutat
 function selectMatingPool(population, size) {
   const sortedByCost = population.sort(Chromosome.sortValue);
 
-  return _.take(sortedByCost, size);
+  return _.shuffle(_.take(sortedByCost, size));
 }
 
 function breed(population, toSize) {
