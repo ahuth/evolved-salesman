@@ -49,8 +49,8 @@ function selectMatingPool(population, size) {
 function breed(population, toSize) {
   const amountNeeded = toSize - population.length;
   const newMembers = new Array(amountNeeded).fill(0).map(() => {
-    const [mommy, daddy] = _.sampleSize(population, 2);
-    return Chromosome.mate(mommy, daddy);
+    const [first, second] = _.sampleSize(population, 2);
+    return Chromosome.mate(first, second);
   });
 
   return population.concat(newMembers);
