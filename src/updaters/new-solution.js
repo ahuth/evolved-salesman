@@ -1,11 +1,13 @@
 import * as Population from '../utils/population';
 
-export default function newSolution({ cities }) {
+export default function newSolution({ bestCost = Infinity, cities }) {
   const population = Population.create(cities);
   const fittest = Population.evolve(population);
+  const cost = Math.round(fittest.cost);
 
   return {
-    cost: Math.round(fittest.cost),
+    bestCost: Math.min(bestCost, cost),
+    currentCost: cost,
     path: fittest.path,
   };
 }

@@ -10,8 +10,9 @@ import randomCities from '../utils/random-cities';
 
 export default class App extends React.Component {
   state = {
+    bestCost: undefined,
     cities: randomCities(10),
-    cost: undefined,
+    currentCost: undefined,
     count: 10,
     path: undefined,
   }
@@ -51,8 +52,11 @@ export default class App extends React.Component {
           onSolveClick={this.handleSolveClick}
           count={this.state.count}
         />
-        {this.state.cost && (
-          <span>Distance: {this.state.cost}</span>
+        {this.state.currentCost && (
+          <React.Fragment>
+            <div>Current Distance: {this.state.currentCost}</div>
+            <div>Best Distance: {this.state.bestCost}</div>
+          </React.Fragment>
         )}
       </div>
     );

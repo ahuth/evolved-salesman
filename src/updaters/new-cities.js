@@ -2,8 +2,9 @@ import randomCities from '../utils/random-cities';
 
 export default function newCities({ count }) {
   return {
+    bestCost: undefined,
     cities: randomCities(Number(count)),
-    cost: undefined,
+    currentCost: undefined,
     path: undefined,
   };
 }

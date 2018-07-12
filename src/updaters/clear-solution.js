@@ -1,6 +1,7 @@
 export default function clearSolution() {
   return {
-    cost: undefined,
+    bestCost: undefined,
+    currentCost: undefined,
     path: undefined,
   };
 }
