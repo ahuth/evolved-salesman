@@ -1,5 +1,5 @@
 export default function pointsToLineCommands(points) {
-  return points.reduce((acc, point, index) => {
+  const commands = points.map((point, index) => {
     let command;
 
     if (index === 0) {
@@ -10,6 +10,8 @@ export default function pointsToLineCommands(points) {
       command = 'L';
     }
 
-    return `${acc} ${command} ${point.x} ${point.y}`;
-  }, '');
+    return `${command} ${point.x} ${point.y}`;
+  });
+
+  return commands.join(' ');
 }
