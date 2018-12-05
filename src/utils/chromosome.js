@@ -8,6 +8,11 @@ export function create(cities) {
   };
 }
 
+// Get the cost (AKA "fitness") of a chromosome. Lower cost is "better".
+export function cost(chromosome) {
+  return chromosome.cost;
+}
+
 // Mutate a chromosome by swapping random pairs of items in its path.
 export function mutate(chromosome) {
   const path = chromosome.path;

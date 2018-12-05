@@ -3,7 +3,7 @@ import * as Chromosome from '../utils/chromosome';
 
 export default function newRandomSolution({ bestCost = Infinity, cities }) {
   const solution = Chromosome.create(_.shuffle(cities));
-  const cost = Math.round(solution.cost);
+  const cost = Math.round(Chromosome.cost(solution));
 
   return {
     bestCost: Math.min(bestCost, cost),
