@@ -1,4 +1,18 @@
 {
-  "main.js": "static/js/main.b65d13bf.js",
-  "main.js.map": "static/js/main.b65d13bf.js.map"
+  "files": {
+    "main.js": "/evolved-salesman/static/js/main.6a070bad.chunk.js",
+    "main.js.map": "/evolved-salesman/static/js/main.6a070bad.chunk.js.map",
+    "runtime-main.js": "/evolved-salesman/static/js/runtime-main.b2315e1d.js",
+    "runtime-main.js.map": "/evolved-salesman/static/js/runtime-main.b2315e1d.js.map",
+    "static/js/2.f00f5150.chunk.js": "/evolved-salesman/static/js/2.f00f5150.chunk.js",
+    "static/js/2.f00f5150.chunk.js.map": "/evolved-salesman/static/js/2.f00f5150.chunk.js.map",
+    "index.html": "/evolved-salesman/index.html",
+    "precache-manifest.0d098c2fda50259a39a26f186c645db4.js": "/evolved-salesman/precache-manifest.0d098c2fda50259a39a26f186c645db4.js",
+    "service-worker.js": "/evolved-salesman/service-worker.js"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b2315e1d.js",
+    "static/js/2.f00f5150.chunk.js",
+    "static/js/main.6a070bad.chunk.js"
+  ]
 }
