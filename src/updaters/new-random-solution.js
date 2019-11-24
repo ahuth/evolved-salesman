@@ -1,8 +1,8 @@
-import _ from 'lodash';
+import { shuffle } from 'lodash';
 import * as Chromosome from '../utils/chromosome';
 
 export default function newRandomSolution({ bestCost = Infinity, cities }) {
-  const solution = Chromosome.create(_.shuffle(cities));
+  const solution = Chromosome.create(shuffle(cities));
   const cost = Math.round(Chromosome.cost(solution));
 
   return {

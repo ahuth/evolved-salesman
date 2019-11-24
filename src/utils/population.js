@@ -1,10 +1,10 @@
-import _ from 'lodash';
+import { minBy, sampleSize, shuffle, take } from 'lodash';
 import * as Chromosome from './chromosome';
 
 export function create(cities, size = 100) {
   return {
     chromosomes: new Array(size).fill(0).map(() => {
-      return Chromosome.create(_.shuffle(cities));
+      return Chromosome.create(shuffle(cities));
     }),
   };
 }
@@ -45,14 +45,14 @@ export function evolve(population, maxIterations = 1000, stableLimit = 20, mutat
 function selectMatingPool(population, size) {
   const sortedByCost = population.sort(Chromosome.sortValue);
 
-  return _.shuffle(_.take(sortedByCost, size));
+  return shuffle(take(sortedByCost, size));
 }
 
 // Take a population and increase its size by breeding together the requried number of members.
 function breed(population, toSize) {
   const amountNeeded = toSize - population.length;
   const newMembers = new Array(amountNeeded).fill(0).map(() => {
-    const [first, second] = _.sampleSize(population, 2);
+    const [first, second] = sampleSize(population, 2);
     return Chromosome.mate(first, second);
   });
 
@@ -61,12 +61,12 @@ function breed(population, toSize) {
 
 // Perform random mutations on members of the population.
 function mutate(population, mutations) {
-  const mutators = _.sampleSize(population, mutations);
+  const mutators = sampleSize(population, mutations);
 
   mutators.forEach(Chromosome.mutate);
   return population;
 }
 
 function getBest(population) {
-  return _.minBy(population, chromosome => chromosome.cost);
+  return minBy(population, chromosome => chromosome.cost);
 }

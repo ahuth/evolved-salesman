@@ -1,7 +1,7 @@
-import _ from 'lodash';
+import { uniqueId } from 'lodash';
 
 export function create(x, y) {
-  return { x, y, id: _.uniqueId() };
+  return { x, y, id: uniqueId() };
 }
 
 export function distance(a, b) {
